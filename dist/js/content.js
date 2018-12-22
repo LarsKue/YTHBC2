@@ -27,6 +27,11 @@ function createButton() {
         "z-index:3000;");
     document.getElementsByTagName("body")[0].appendChild(linkItem);
 }
-document.addEventListener("fullscreenchange", onFullScreenChange);
-window.addEventListener("scroll", onScroll);
-createButton();
+chrome.runtime.sendMessage({ msg: "getEnabled" }, function (response) {
+    if (response.enabled) {
+        createButton();
+        document.addEventListener("fullscreenchange", onFullScreenChange);
+        window.addEventListener("scroll", onScroll);
+    }
+    return true;
+});

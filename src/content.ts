@@ -45,9 +45,16 @@ function createButton() : void {
     document.getElementsByTagName("body")[0].appendChild(linkItem);
 }
 
+// check if the extension is enabled before loading the image
+chrome.runtime.sendMessage({msg: "getEnabled"}, function(response) {
+    // sending messages is asynchronous, so you can't really do this much differently without using storage api
+    if (response.enabled) {
+        createButton();
+        document.addEventListener("fullscreenchange", onFullScreenChange);
+        window.addEventListener("scroll", onScroll);
+    }
+    // maybe need this here to prevent some asynchronosity?
+    return true;
+});
 
-document.addEventListener("fullscreenchange", onFullScreenChange);
-window.addEventListener("scroll", onScroll);
-
-createButton();
 
