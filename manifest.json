@@ -1,0 +1,22 @@
+{
+  "name": "YouTube Home Button Changer",
+  "version": "2.0.0",
+  "description": "Changes the YouTube Home Button",
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["dist/js/background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "assets/button.png"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": ["dist/js/content.js"]
+    }
+  ],
+  "manifest_version": 2
+}

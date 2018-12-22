@@ -1,0 +1,17 @@
+{
+  "name": "YTHBC-2.0",
+  "version": "2.0.0",
+  "description": "YouTube Home Button Changer",
+  "main": "index.js",
+  "author": "Lars Kuehmichel",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LarsKue/YTHBC-2.0.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chrome": "^0.0.76",
+    "typescript": "^3.2.2"
+  }
+}
