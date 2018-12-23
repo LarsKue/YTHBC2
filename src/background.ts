@@ -5,28 +5,27 @@ function onInstall() : void {
 }
 
 let enabled : boolean = true;
-
-function enableDisable() : void {
-    enabled = !enabled;
-    if (enabled) {
-        chrome.browserAction.setIcon({path: "assets/icon.png"});
-        console.log("Enabling...");
-    } else {
-        chrome.browserAction.setIcon({path: "assets/iconDisabled.png"});
-        console.log("Disabling...");
-    }
-}
+let replaceIcon : boolean = true;
 
 // TODO: static typing
-function msgEnabled(request : any, sender : any, sendResponse : any) : boolean {
-    if (request.msg === "getEnabled") {
-        sendResponse({enabled: enabled});
+function msg(request : any, sender : any, sendResponse : any) : boolean {
+    if (request.msg === "get") {
+        sendResponse({enabled: enabled, replaceIcon: replaceIcon});
         return true;
     }
+    if (request.msg === "setEnabled") {
+        enabled = request.value;
+        console.log("Enabled:", enabled);
+        return true;
+    }
+    if (request.msg === "setReplaceIcon") {
+        replaceIcon = request.value;
+        console.log("Replace Icon:", replaceIcon);
+        return true;
+    }
+    return false;
 }
 
 chrome.runtime.onInstalled.addListener(onInstall);
 
-chrome.browserAction.onClicked.addListener(enableDisable);
-
-chrome.runtime.onMessage.addListener(msgEnabled);
+chrome.runtime.onMessage.addListener(msg);

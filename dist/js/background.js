@@ -3,23 +3,23 @@ function onInstall() {
     console.log("Thank you for installing YTHBC 2.0!");
 }
 var enabled = true;
-function enableDisable() {
-    enabled = !enabled;
-    if (enabled) {
-        chrome.browserAction.setIcon({ path: "assets/icon.png" });
-        console.log("Enabling...");
-    }
-    else {
-        chrome.browserAction.setIcon({ path: "assets/iconDisabled.png" });
-        console.log("Disabling...");
-    }
-}
-function msgEnabled(request, sender, sendResponse) {
-    if (request.msg === "getEnabled") {
-        sendResponse({ enabled: enabled });
+var replaceIcon = true;
+function msg(request, sender, sendResponse) {
+    if (request.msg === "get") {
+        sendResponse({ enabled: enabled, replaceIcon: replaceIcon });
         return true;
     }
+    if (request.msg === "setEnabled") {
+        enabled = request.value;
+        console.log("Enabled:", enabled);
+        return true;
+    }
+    if (request.msg === "setReplaceIcon") {
+        replaceIcon = request.value;
+        console.log("Replace Icon:", replaceIcon);
+        return true;
+    }
+    return false;
 }
 chrome.runtime.onInstalled.addListener(onInstall);
-chrome.browserAction.onClicked.addListener(enableDisable);
-chrome.runtime.onMessage.addListener(msgEnabled);
+chrome.runtime.onMessage.addListener(msg);

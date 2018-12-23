@@ -2,7 +2,7 @@
 
 let buttonURL : string = chrome.extension.getURL("assets/button.png");
 
-function execute() : boolean {
+function execute(replaceIcon : boolean) : boolean {
 
     // select all items from the document that have the title "YouTube Home" and give them the
     // proper link and a regular YouTube Home image
@@ -13,18 +13,21 @@ function execute() : boolean {
         // https://www.youtube.com/
         // this will link you to the homepage, albeit without that sweet youtube "cache integration" so to speak
         linkItem.href = "/";
-        linkItem.innerHTML = `<img src = ${buttonURL}>`;
+        if (replaceIcon) {
+            linkItem.innerHTML = `<img src = ${buttonURL}>`;
+        }
     });
     return true;
 }
 
 // only execute when the window has fully loaded and the extension is enabled
 window.onload = function() : void {
-    chrome.runtime.sendMessage({msg: "getEnabled"}, function (response) {
+    chrome.runtime.sendMessage({msg: "get"}, function (response) : boolean {
         if (response.enabled) {
-            execute();
+            execute(response.replaceIcon);
+            return true;
         }
-        return true;
+        return false;
     });
 };
 
