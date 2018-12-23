@@ -7,6 +7,7 @@ var isChecked;
 window.onload = function () {
     chrome.runtime.sendMessage({ msg: "get" }, function (response) {
         isChecked = response.replaceIcon;
+        checkBox.checked = isChecked;
         isEnabled = response.enabled;
         enableButton.innerHTML = isEnabled ? "Disable" : "Enable";
         enableButton.style.backgroundColor = isEnabled ? "#DD0000" : "green";
