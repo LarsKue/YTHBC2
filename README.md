@@ -1,7 +1,7 @@
 # YTHBC-2.0
 YouTube Home Button Changer 2.0 - improved and now in TypeScript!
 
-This Chrome Extension changes the YouTube Home Button so that it no longer annoys you when there is an event!
+This lightweight Chrome Extension changes the YouTube Home Button so that it no longer annoys you when there is an event!
 
 **Features:**
 1. Full Seamless YouTube Internal Integration
