@@ -5,7 +5,13 @@
 </head>
 <body>
 <button id="enableDisable">Disable</button><br>
-<input type="checkbox" id="replaceIcon" checked>Replace YouTube Home Icon<br>
+<!--leftalign checkbox and rightalign GitHub link in the same line-->
+<p style="text-align: left;">
+    <input type="checkbox" id="replaceIcon" checked>Replace YouTube Home Icon
+    <span style="float: right;">
+        <a target="_blank" href="https://github.com/LarsKue/YTHBC-2.0.git">View GitHub</a>
+    </span>
+</p>
 <!--script needs to come after button and checkbox-->
 <script src="../dist/js/popup.js"></script>
 </body>

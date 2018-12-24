@@ -8,3 +8,9 @@ button {
     border: none;
     color: white;
 }
+
+a {
+    color: grey;
+    font-size: 10px;
+    alignment: right;
+}
