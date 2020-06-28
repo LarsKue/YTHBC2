@@ -1,9 +1,9 @@
 function onInstall() {
     chrome.browserAction.setIcon({ path: "assets/icon.png" });
-    console.log("Thank you for installing YTHBC 2.0!");
+    console.log("Thank you for installing YTHBC 2!");
 }
-var enabled = true;
-var replaceIcon = true;
+let enabled = true;
+let replaceIcon = true;
 function msg(request, sender, sendResponse) {
     if (request.msg === "get") {
         sendResponse({ enabled: enabled, replaceIcon: replaceIcon });

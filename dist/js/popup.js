@@ -1,9 +1,9 @@
-var enableButton = document.getElementById("enableDisable");
-var checkBox = document.getElementById("replaceIcon");
+let enableButton = document.getElementById("enableDisable");
+let checkBox = document.getElementById("replaceIcon");
 enableButton.addEventListener("click", enableDisable);
 checkBox.addEventListener("click", enableDisableIcon);
-var isEnabled;
-var isChecked;
+let isEnabled;
+let isChecked;
 window.onload = function () {
     chrome.runtime.sendMessage({ msg: "get" }, function (response) {
         isChecked = response.replaceIcon;

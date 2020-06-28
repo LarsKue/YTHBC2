@@ -1,6 +1,6 @@
 {
-  "name": "YTHBC-2.0",
-  "version": "2.0.0",
+  "name": "ythbc2",
+  "version": "2.1.0",
   "description": "YouTube Home Button Changer",
   "main": "index.js",
   "author": "Lars Kuehmichel",
@@ -11,7 +11,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@types/chrome": "^0.0.76",
-    "typescript": "^3.2.2"
+    "@types/chrome": "^0.0.117",
+    "typescript": "^3.9.5"
   }
 }

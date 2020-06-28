@@ -14,7 +14,7 @@ function execute(replaceIcon : boolean) : boolean {
         // this will link you to the homepage, albeit without that sweet youtube "cache integration" so to speak
         linkItem.href = "/";
         if (replaceIcon) {
-            linkItem.innerHTML = `<img src = ${buttonURL}>`;
+            linkItem.innerHTML = `<img src = ${buttonURL} alt = "Button URL">`;
         }
     });
     return true;
