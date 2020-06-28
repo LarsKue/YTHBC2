@@ -3,7 +3,6 @@
   "short_name": "YTHBC",
   "version": "2.1.0",
   "description": "Changes the YouTube Home Button",
-  "permissions": ["storage"],
   "background": {
     "scripts": ["dist/js/background.js"],
     "persistent": false
