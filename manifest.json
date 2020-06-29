@@ -1,7 +1,7 @@
 {
-  "name": "YouTube Home Button Changer",
+  "name": "Home Button Changer for YouTube™",
   "short_name": "YTHBC",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Changes the YouTube Home Button",
   "background": {
     "scripts": ["dist/js/background.js"],
